@@ -55,7 +55,9 @@ public class StudentService {
 		studentRec.setCity(student.getCity());
 		studentRec.setDept(deptRepo.findById(Long.valueOf(student.getDeptId())).get());
 
-		studentRepo.save(studentRec);
+		Long id = studentRepo.save(studentRec).getId();
+
+		logger.debug("Created student record with ID: " + id);
 	}
 
 	@Cacheable(cacheNames = "student-cache")
