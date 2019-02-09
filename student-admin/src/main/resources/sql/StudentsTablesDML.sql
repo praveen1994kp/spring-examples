@@ -1,0 +1,10 @@
+REM INSERTING into INSTITUTES
+Insert into INSTITUTES (ID,NAME,CITY) values (2,'SAIRAM','TAMBARAM');
+Insert into INSTITUTES (ID,NAME,CITY) values (3,'SSN','CHENNAI');
+Insert into INSTITUTES (ID,NAME,CITY) values (4,'SVCE','SRIPERUMBADUR');
+
+REM INSERTING into DEPARTMENTS
+Insert into DEPARTMENTS (ID,NAME,INST_ID) values (2,'Information Technology',2);
+
+COMMIT;
+/
