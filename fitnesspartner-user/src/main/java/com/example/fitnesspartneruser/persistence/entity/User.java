@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class User {
 	
@@ -22,8 +25,13 @@ public class User {
 	@Column(name = "height_in_cm")
 	private String heightInCm;
 	
-	private int bmi;
+	private Integer age;
 	
+	private String gender;
+	
+	private Integer bmi;
+	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 
 	public String getEmail() {
@@ -66,11 +74,11 @@ public class User {
 		this.heightInCm = heightInCm;
 	}
 
-	public int getBmi() {
+	public Integer getBmi() {
 		return bmi;
 	}
 
-	public void setBmi(int bmi) {
+	public void setBmi(Integer bmi) {
 		this.bmi = bmi;
 	}
 
@@ -80,6 +88,22 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	
 

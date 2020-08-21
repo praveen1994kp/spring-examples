@@ -6,6 +6,8 @@ CREATE TABLE fitnesspartner.`user` (
 	bmi BIGINT NULL,
 	email varchar(100) NOT NULL,
 	password varchar(100) NOT NULL,
+	age INT NULL,
+	gender CHAR NULL,
 	CONSTRAINT user_pk PRIMARY KEY (email)
 )
 

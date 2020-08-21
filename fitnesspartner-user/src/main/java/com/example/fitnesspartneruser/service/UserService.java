@@ -14,9 +14,20 @@ public class UserService {
 	@Autowired
 	private UserRepository repository;
 	
-	public User createUser(User userDetails) {
+	public User saveUser(User userDetails) {
 		
 		return repository.save(userDetails);
+	}
+	
+	public User updateUser(User userDetails, String email) {
+		User userInfo = repository.findById(email).get();
+		userInfo.setBmi(userDetails.getBmi());
+		userInfo.setAge(userDetails.getAge());
+		userInfo.setGender(userDetails.getGender());
+		userInfo.setWeightInKg(userDetails.getWeightInKg());
+		userInfo.setHeightInCm(userDetails.getHeightInCm());
+		
+		return this.saveUser(userInfo);
 	}
 	
 	public Optional<User> validateCredentials(User userDetails) {
